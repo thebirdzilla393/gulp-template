@@ -1,0 +1,91 @@
+doctype html
+html(lang="ru-RU")
+    head
+        // Теги для отображения
+        // Кодировка
+        meta(charset="UTF-8")
+
+        meta(http-equiv="X-UA-Compatible", content="IE = Edge")
+        // Адаптивность
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0")
+        // CSP
+        meta(http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' data:; img-src 'self' data:; script-src 'self'; connect-src 'self';")
+        // Отключает формирование ссылки у номера телефона на iOS
+        meta(name="format-detection" content="telephone=no")
+
+        // SEO
+        // Краткое описание страницы (не более 140 символов)
+        meta(name="description" content="?")
+        // Ключевые слова страницы (не более 20 слов)
+        meta(name="keywords" content="?")
+        // Управление доступом поисковых роботов к странице
+        // none, noindex, nofollow, noimageindex, noarchive, nosnippet
+        meta(name="robots" content="none")
+
+        // Технические
+        // Автор страницы
+        meta(name="Author" content="?")
+        // Авторские права
+        meta(name="Copyright" content="?")
+        // Адрес автора
+        meta(name="Address" content="?")
+        // Редирект (перезагрузка) страницы. Задержка в секундах; url=Адрес сайта/страницы. (S= Задержка в секундах; URL= Адрес сайта/страницы)
+        meta(http-equiv="refresh" content="S; url=index.html")
+
+        // Теги для соц. сетей
+        // Facebook
+        // Локализация сайта, для русскоязычного сайта ru_RU
+        meta(property="og:locale" content="ru_RU")
+        // Тип контента, по умолчанию используется article
+        // article,
+        meta(property="og:type" content="article")
+        // Заголовок страницы, который будет выводится в записи социальной сети
+        meta(property="og:title" content="?")
+        // Описание страницы
+        meta(property="og:description" content="?")
+        // Ссылка на изображение, которое будет публиковаться в записи
+        meta(property="og:image" content="?")
+        // Ссылка на текущую страницу
+        meta(property="og:url" content="index.html")
+        // Название сайта
+        meta(property="og:site_name" content="?")
+
+        //- Проверить разметку можно в валидаторе от Facebook https://developers.facebook.com/tools/debug/sharing/
+
+        //- Подробнее о протоколе Open Graph можно почитать в официальной документации по ссылке в описании. https://ruogp.me/
+
+        // Twitter
+        // Тип карты, по умолчанию используется summary
+        meta(name="twitter:card" content="summary")
+        // Имя/логин автора
+        meta(name="twitter:site" content="?")
+        // Название страницы
+        meta(name="twitter:title" content="?")
+        // Описание страницы
+        meta(name="twitter:description" content="?")
+        // Cсылка на изображение
+        meta(name="twitter:image" content="?")
+
+        //- Проверяем результат в валидаторе твиттер https://cards-dev.twitter.com/validator
+
+        //- Подробнее о создании Twitter Cards можно почитать в официальной документации по ссылке в описании. https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
+        
+        // Стили
+        link(rel="stylesheet" type="text/css" href="styles/fonts.css")
+        link(rel="stylesheet" type="text/css" href="styles/styles.css")
+        link(rel="icon" type="image/x-icon" href="favicon.ico")
+
+        // Заголовок
+        title
+            block title
+
+    body
+        include ../templates/header
+
+        include ../templates/menu
+
+        block content
+
+        include ../templates/footer
+        
+        script(src='../js/main.js')

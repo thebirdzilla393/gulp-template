@@ -1,6 +1,6 @@
 module.exports = function () {
-	$.gulp.task('styles', () => {
-		return $.gulp.src($.gulpVariables.dir.src.sass)
+	$.gulp.task('buildAppStyles', () => {
+		return $.gulp.src($.gulpVariables.dir.src.styles)
 			.pipe($.loadPlugins.sourcemaps.init())
 			.pipe($.loadPlugins.sass({
 				'include css': true
@@ -12,13 +12,11 @@ module.exports = function () {
 				};
 			}))
 			.pipe($.loadPlugins.autoprefixer({  // префиксы для браузеров
-				browsers: ['last 3 versions']
+				overrideBrowserslist: ['last 3 versions']
 			}))
 			.pipe($.loadPlugins.csso()) // объеденение стилей повторных
 			.pipe($.loadPlugins.sourcemaps.write())
-			.pipe($.gulp.dest($.gulpVariables.dir.dist.css))
-			.pipe($.browserSync.reload({
-				stream: true	// обновление стилей без перезагрузки страницы
-			}));
+			.pipe($.gulp.dest($.gulpVariables.dir.dist.styles))
+			.pipe($.browserSync.reload({stream: true})); // обновление без перезагрузки страницы
 	});
 }

@@ -5,52 +5,63 @@ const TOOLS_BASEPATH = './tools/gulp/tasks/';
 const dir = {
     dist: {
 		dir_name: `${DIST}`,
-        favicon: `${DIST}/pages/`,
+		favicon: `${DIST}/`,
 		fonts: `${DIST}/assets/fonts/`,
         icons: `${DIST}/assets/icons/`,
 		images: `${DIST}/assets/images/`,
-		css: `${DIST}/css/`,
+		styles: `${DIST}/styles/`,
 		js: `${DIST}/js/`,
-		pages: `${DIST}/pages/`
+		libsJs: `${DIST}/js/libs/`,
+		pages: `${DIST}/pages/`,
+		mainPage: `${DIST}/`,
     },
     src: {
 		dir_name: `${SRC}`,
-        favicon: `${SRC}/pages/favicon.ico`,
+		favicon: `${SRC}/favicon.ico`,
 		fonts: `${SRC}/assets/fonts/**/*.*`,
 		icons: `${SRC}/assets/icons/**/*.*`,
 		images: `${SRC}/assets/images/**/*.*`,
-		sass: `${SRC}/sass/styles.scss`,
-		js: `${SRC}/js/**/*.js`,
-		pages: `${SRC}/pages/*.pug`
+		styles: `${SRC}/styles/*.scss`,
+		js: `${SRC}/js/*.js`,
+		libsJs: `${SRC}/js/libs/*.js`,
+		pages: `${SRC}/pages/*.pug`,
+		mainPage: `${SRC}/*.pug`,
     },
     watch: {
-        favicon: `${SRC}/pages/favicon.ico`,
+		favicon: `${SRC}/favicon.ico`,
 		fonts: `${SRC}/assets/fonts/**/*.*`,
 		icons: `${SRC}/assets/icons/**/*.*`,
 		images: `${SRC}/assets/images/**/*.*`,
-		sass: `${SRC}/sass/**/*.scss`,
-		js: `${SRC}/js/**/*.js`,
-        pages: `${SRC}/pages/*.pug`
+		commonStyles: `${SRC}/styles/*.scss`,
+		pageStyles: `${SRC}/styles/**/*.scss`,
+		js: `${SRC}/js/*.js`,
+		libsJs: `${SRC}/js/libs/*.js`,
+		pages: `${SRC}/pages/*.pug`,
+		templates: `${SRC}/pages/**/*.pug`,
+		mainPage: `${SRC}/*.pug`,
     },
     clean: DIST
 };
 
 const serverConfig = {
     server: {
-        baseDir: DIST
+        baseDir: `${DIST}`
     },
-    tunnel: true,
-    host: 'localhost',
-    port: 9000,
-    logPrefix: 'front_dev'
+    //tunnel: true,
+    port: 4200,
+    open: true,
+    notify: false
 };
 
 const taskPaths = [
-	`${TOOLS_BASEPATH}serve`,
-	`${TOOLS_BASEPATH}watch`,
-	`${TOOLS_BASEPATH}pug`,
+	`${TOOLS_BASEPATH}clean`,
 	`${TOOLS_BASEPATH}styles`,
+	`${TOOLS_BASEPATH}pug`,
 	`${TOOLS_BASEPATH}images`,
+	`${TOOLS_BASEPATH}fonts`,
+	`${TOOLS_BASEPATH}scripts`,
+	`${TOOLS_BASEPATH}watch`,
+	`${TOOLS_BASEPATH}webserver`,
 ];
 
 module.exports.dir = dir;
