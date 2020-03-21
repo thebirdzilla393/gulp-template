@@ -1,5 +1,5 @@
 module.exports = function () {
-	$.gulp.task('buildAppStyles', () => {
+	$.gulp.task('styles', () => {
 		return $.gulp.src($.gulpVariables.dir.src.styles)
 			.pipe($.loadPlugins.sourcemaps.init())
 			.pipe($.loadPlugins.sass({outputStyle: 'expanded'}) //'include css': true,

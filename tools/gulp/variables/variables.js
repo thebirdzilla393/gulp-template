@@ -1,51 +1,41 @@
 const DIST = './dist';
 const SRC = './src';
 const TOOLS_BASEPATH = './tools/gulp/tasks/';
+// Расширеня вынесены как константы, чтобы их можно было легко заменить
+const STYLE_SOURCE = 'scss';
+const HTML_SOURCE = 'pug';
 
 const dir = {
     dist: {
-		dir_name: `${DIST}`,
-		favicon: `${DIST}/`,
+		dir_name: DIST,
 		fonts: `${DIST}/assets/fonts/`,
-        icons: `${DIST}/assets/icons/`,
-		images: `${DIST}/assets/images/`,
 		styles: `${DIST}/styles/`,
 		js: `${DIST}/js/`,
-		libsJs: `${DIST}/js/libs/`,
-		pages: `${DIST}/pages/`,
-		mainPage: `${DIST}/`,
     },
     src: {
-		dir_name: `${SRC}`,
-		favicon: `${SRC}/favicon.ico`,
+		dir_name: SRC,
 		fonts: `${SRC}/assets/fonts/**/*.*`,
-		icons: `${SRC}/assets/icons/**/*.*`,
-		images: `${SRC}/assets/images/**/*.*`,
-		styles: `${SRC}/styles/*.scss`,
-		js: `${SRC}/js/*.js`,
-		libsJs: `${SRC}/js/libs/*.js`,
-		pages: `${SRC}/pages/*.pug`,
-		mainPage: `${SRC}/*.pug`,
+		images: `${SRC}/**/*.{jpg,jpeg,png,ico,gif}`,
+		styles: `${SRC}/styles/*.${STYLE_SOURCE}`,
+		js: `${SRC}/js/**/*.js`,
+		notJsOfTemplates: `!${SRC}/js/templates/*.*`,
+		pages: `${SRC}/**/*.${HTML_SOURCE}`,
+		notPageLayout: `!${SRC}/pages/layout/*.*`,
+		notPageTemplates: `!${SRC}/pages/templates/*.*`,
     },
     watch: {
-		favicon: `${SRC}/favicon.ico`,
 		fonts: `${SRC}/assets/fonts/**/*.*`,
-		icons: `${SRC}/assets/icons/**/*.*`,
-		images: `${SRC}/assets/images/**/*.*`,
-		commonStyles: `${SRC}/styles/*.scss`,
-		pageStyles: `${SRC}/styles/**/*.scss`,
-		js: `${SRC}/js/*.js`,
-		libsJs: `${SRC}/js/libs/*.js`,
-		pages: `${SRC}/pages/*.pug`,
-		templates: `${SRC}/pages/**/*.pug`,
-		mainPage: `${SRC}/*.pug`,
+		images: `${SRC}/**/*.{jpg,jpeg,png,ico,gif}`,
+		styles: `${SRC}/styles/**/*.${STYLE_SOURCE}`,
+		js: `${SRC}/js/**/*.js`,
+		pages: `${SRC}/**/*.${HTML_SOURCE}`,
     },
     clean: DIST
 };
 
 const serverConfig = {
     server: {
-        baseDir: `${DIST}`
+        baseDir: DIST
 	},
 	//tunnel: true,
     port: 4200,
@@ -57,13 +47,13 @@ const serverConfig = {
 
 const taskPaths = [
 	`${TOOLS_BASEPATH}clean`,
-	`${TOOLS_BASEPATH}styles`,
-	`${TOOLS_BASEPATH}pug`,
-	`${TOOLS_BASEPATH}images`,
 	`${TOOLS_BASEPATH}fonts`,
+	`${TOOLS_BASEPATH}styles`,
+	`${TOOLS_BASEPATH}images`,
 	`${TOOLS_BASEPATH}scripts`,
-	`${TOOLS_BASEPATH}watch`,
-	`${TOOLS_BASEPATH}webserver`,
+	`${TOOLS_BASEPATH}html`,
+	`${TOOLS_BASEPATH}watcher`,
+	`${TOOLS_BASEPATH}webserver`
 ];
 
 module.exports.dir = dir;

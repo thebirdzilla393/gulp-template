@@ -1,5 +1,14 @@
 module.exports = function () {
-	// $.gulp.task('buildAppLibsJs', () => {
+	$.gulp.task('js', () => {
+		return $.gulp.src([$.gulpVariables.dir.src.js, $.gulpVariables.dir.src.notJsOfTemplates])
+			.pipe($.gulp.dest($.gulpVariables.dir.dist.js))
+			.pipe($.loadPlugins.uglify()) // минимизация файла (запись в min.js)
+			.pipe($.loadPlugins.rename({suffix: '.min'}))
+			.pipe($.gulp.dest($.gulpVariables.dir.dist.js))
+			.pipe($.browserSync.reload({stream: true})); // обновление без перезагрузки страницы
+	});
+
+	// $.gulp.task('js:libs', () => {
 	// 	return $.gulp.src([
 	// 		'node_modules/lib',
 	// 		'node_modules/lib'
@@ -11,13 +20,4 @@ module.exports = function () {
 	// 	.pipe($.gulp.dest($.gulpVariables.dir.dist.libsJs))
 	// 	.pipe($.browserSync.reload({stream: true})); // обновление без перезагрузки страницы
 	// });
-
-	$.gulp.task('buildAppJs', () => {
-		return $.gulp.src($.gulpVariables.dir.src.js)
-			.pipe($.gulp.dest($.gulpVariables.dir.dist.js))
-			.pipe($.loadPlugins.uglify()) // минимизация файла (запись в min.js)
-			.pipe($.loadPlugins.rename({suffix: '.min'}))
-			.pipe($.gulp.dest($.gulpVariables.dir.dist.js))
-			.pipe($.browserSync.reload({stream: true})); // обновление без перезагрузки страницы
-	});
 }

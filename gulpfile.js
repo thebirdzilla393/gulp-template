@@ -12,21 +12,18 @@ $.gulpVariables.taskPaths.forEach(function(taskPath) {
 	require(taskPath)();
 });
 
-$.gulp.task('default',
+$.gulp.task('watch',
 	$.gulp.series(
 		'clean',
 		$.gulp.parallel(
-			'buildAppStyles',
-			'buildMainAppHtml',
-			'buildAppHtml',
-			'buildAppImages',
-			'buildAppIcons',
-			'buildAppFavicon',
-			'buildAppFonts',
-			'buildAppJs'
+			'fonts',
+			'styles',
+			'images',
+			'js',
+			'html',
 		),
 		$.gulp.parallel(
-			'watch',
+			'watcher',
 			'webserver'
 		)
 	)
