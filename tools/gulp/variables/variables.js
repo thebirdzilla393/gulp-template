@@ -46,11 +46,13 @@ const dir = {
 const serverConfig = {
     server: {
         baseDir: `${DIST}`
-    },
-    //tunnel: true,
+	},
+	//tunnel: true,
     port: 4200,
     open: true,
-    notify: false
+	notify: false,
+	reloadOnRestart: true,
+	startPath: '/index.html'
 };
 
 const taskPaths = [

@@ -10,6 +10,9 @@ body {
     font-weight: 100;
 }
 
+p {
+    font-size: 30px;
+}
 @import '../styles/templates/header.scss';
 @import '../styles/templates/menu.scss';
 @import '../styles/templates/footer.scss';
