@@ -18,10 +18,10 @@ const dir = {
 		images: `${SRC}/**/*.{jpg,jpeg,png,ico,gif}`,
 		styles: `${SRC}/styles/*.${STYLE_SOURCE}`,
 		js: `${SRC}/js/**/*.js`,
-		notJsOfTemplates: `!${SRC}/js/templates/*.*`,
+		notJsOfTemplates: `!${SRC}/js/templates/**/*.*`,
 		pages: `${SRC}/**/*.${HTML_SOURCE}`,
-		notPageLayout: `!${SRC}/pages/layout/*.*`,
-		notPageTemplates: `!${SRC}/pages/templates/*.*`,
+		notPageLayout: `!${SRC}/pages/layout/**/*.*`,
+		notPageTemplates: `!${SRC}/pages/templates/**/*.*`,
     },
     watch: {
 		fonts: `${SRC}/assets/fonts/**/*.*`,
