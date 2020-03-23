@@ -15,16 +15,15 @@ $.gulpVariables.taskPaths.forEach(function(taskPath) {
 $.gulp.task('watch',
 	$.gulp.series(
 		'clean',
-		$.gulp.parallel(
-			'fonts',
-			'styles',
-			'images',
-			'js',
-			'html',
-		),
-		$.gulp.parallel(
-			'watcher',
-			'webserver'
-		)
+		$.gulp.parallel('fonts', 'styles' ,'images' ,'js' ,'html' ),
+		$.gulp.parallel('watcher', 'webserver')
+	)
+);
+
+$.gulp.task('watch:prod',
+	$.gulp.series(
+		'clean',
+		$.gulp.parallel('fonts', 'styles:prod' ,'images' ,'js:prod' ,'html'),
+		$.gulp.parallel('watcher:prod', 'webserver')
 	)
 );
